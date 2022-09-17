@@ -6,6 +6,7 @@ import { styles } from "./styles";
 import logoImg from "../../assets/logo-nlw-esports.png";
 import { Heading } from "../../components/Heading";
 import { GameCard } from "../../components/GameCard";
+import React from "react";
 
 export function Home() {
   return (

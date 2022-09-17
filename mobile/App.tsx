@@ -9,6 +9,7 @@ import {
 import { Background } from './src/components/Background';
 import { Loading } from './src/components/Loading';
 import {Home} from './src/screens/Home'
+import React from 'react';
 
 export default function App() {
   const [fontLoader] = useFonts({
