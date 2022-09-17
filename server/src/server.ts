@@ -8,14 +8,12 @@ const prisma = new PrismaClient();
 
 const app = express();
 app.use(express.json());
-app.use(cors({
-  origin: 'http://127.0.0.1:5173/'
-}))
+app.use(cors())
 
 const port = 3333;
 
 app.get("/", (request, response) => {
-  return response.send(`Conectado com sucesso`);
+  return response.json({conexao:`Conectado com sucesso`});
 });
 
 app.get("/games", async (request, response) => {
