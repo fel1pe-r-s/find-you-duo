@@ -3,13 +3,14 @@ import { Background } from "../../components/Background";
 import { useRoute, useNavigation } from "@react-navigation/native";
 import { styles } from "./styles";
 import { GameParams } from "../../@types/naigation";
-import { View, TouchableOpacity, Image, FlatList } from "react-native";
+import { View, TouchableOpacity, Image, FlatList, Text } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { THEME } from "../../theme";
 import logoImg from "../../assets/logo-nlw-esports.png";
 import { Heading } from "../../components/Heading";
 import { DuoCard, DuoCardProps } from "../../components/DuoCard";
 import { useEffect, useState } from "react";
+import React = require("react");
 
 export function Game() {
   const [duos, setDuos] = useState<DuoCardProps[]>([]);
@@ -54,18 +55,21 @@ export function Game() {
 
         <FlatList
           data={duos}
-          keyExtractor={item => item.id}
+          keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-          <DuoCard 
-          data={item}
-          onConnect={()=>{}}
-          
-          />
+            <DuoCard data={item} onConnect={() => {}} />
           )}
           horizontal
           style={styles.containerList}
-          contentContainerStyle={styles.contentList}
+          contentContainerStyle={[
+            duos.length > 0 ? styles.contentList : styles.emptyListContent,
+          ]}
           showsHorizontalScrollIndicator={false}
+          ListEmptyComponent={() => (
+            <Text style={styles.emptyListText}>
+              Não há anúmcis publicados ainda.
+            </Text>
+          )}
         />
       </SafeAreaView>
     </Background>
