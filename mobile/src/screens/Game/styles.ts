@@ -26,5 +26,13 @@ export const styles = StyleSheet.create({
     height:160,
     borderRadius: 8,
     marginTop: 32,
+  },
+  containerList:{
+    paddingLeft:32,
+    paddingRight:64,
+    alignItems: "flex-start",
+  },
+  contentList:{
+    width:"100%",
   }
 });
