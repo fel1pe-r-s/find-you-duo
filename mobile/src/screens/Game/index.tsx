@@ -10,10 +10,12 @@ import logoImg from "../../assets/logo-nlw-esports.png";
 import { Heading } from "../../components/Heading";
 import { DuoCard, DuoCardProps } from "../../components/DuoCard";
 import { useEffect, useState } from "react";
-import React = require("react");
+import { DuoMatch } from "../../components/DuoMatch";
+import React from "react";
 
 export function Game() {
   const [duos, setDuos] = useState<DuoCardProps[]>([]);
+  const [discordDuoSelected, setDiscordDuoSelected] = useState('');
 
   const navigation = useNavigation();
 
@@ -70,6 +72,12 @@ export function Game() {
               Não há anúmcis publicados ainda.
             </Text>
           )}
+        />
+
+        <DuoMatch 
+          visible={discordDuoSelected.length>0} 
+          discord='felipe#222'
+          onClose={()=>setDiscordDuoSelected('')}
         />
       </SafeAreaView>
     </Background>
